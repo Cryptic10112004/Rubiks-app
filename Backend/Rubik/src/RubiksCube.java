@@ -1,69 +1,41 @@
 public class RubiksCube {
-    private char[][] top = new char[3][3];      //Cube face array initiation Top: Yellow
-    private char[][] bottom = new char[3][3];   //Cube face array initiation Bottom: White
-    private char[][] left = new char[3][3];     //Cube face array initiation Left: Orange
-    private char[][] right = new char[3][3];    //Cube face array initiation Right: Red
-    private char[][] front = new char[3][3];    //Cube face array initiation Front: Green
-    private char[][] back = new char[3][3];     //Cube face array initiation Back: Blue
+    private char[][][] cube = new char[6][3][3];        //Cube face array initiation 3-D where[face][grid face][grid face]
+    char [] colors = {'Y', 'W', 'O', 'R', 'G', 'B'};
+    String [] faceNames = {"Top", "Bottom", "Left", "Right", "Front", "Back"};
+    // Representation of faces
+    private static final int TOP = 0;
+    private static final int BOTTOM = 1;
+    private static final int LEFT = 2;
+    private static final int RIGHT = 3;
+    private static final int FRONT = 4;
+    private static final int BACK = 5;
 
-    private void initiateCube(){
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++){
-                top[i][j] = 'Y';
-                bottom[i][j] = 'W';
-                left[i][j] = 'O';
-                right[i][j] = 'R';
-                front[i][j] = 'G';
-                back[i][j] = 'B';
-            }
-        }
 
-    }
     public RubiksCube (){  // Method to access the initialized cube
         initiateCube();
     }
+
+
+    private void initiateCube(){
+        for(int face = 0; face < 6; face++){
+            for(int i = 0; i <3; i++){
+                for(int j = 0; j <3; j++){
+                    cube[face][i][j] = colors[face];
+                }
+            }
+        }
+    }
+
+
     public void DisplayCube(){
-        System.out.println("Face: Top");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(top[i][j] + " ");
+        for(int face = 0; face < 6; face++){
+            System.out.println("Face: " + faceNames[face]);
+            for(int i = 0; i < 3; i++){
+                for(int j = 0; j < 3; j++){
+                    System.out.print(cube[face][i][j] + " ");
+                }
+                System.out.println();
             }
-            System.out.println();
-        }
-        System.out.println("Face: Bottom");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(bottom[i][j] + " ");
-            }
-            System.out.println();
-        }
-        System.out.println("Face: Left");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(left[i][j] + " ");
-            }
-            System.out.println();
-        }
-        System.out.println("Face: Right");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(right[i][j] + " ");
-            }
-            System.out.println();
-        }
-        System.out.println("Face: Front");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(front[i][j] + " ");
-            }
-            System.out.println();
-        }
-        System.out.println("Face: Back");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                System.out.print(back[i][j] + " ");
-            }
-            System.out.println();
         }
     }
 }
