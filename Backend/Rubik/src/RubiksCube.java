@@ -1,14 +1,17 @@
 public class RubiksCube {
-    private char[][][] cube = new char[6][3][3];        //Cube face array initiation 3-D where[face][grid face][grid face]
-    char [] colors = {'Y', 'W', 'O', 'R', 'G', 'B'};
-    String [] faceNames = {"Top", "Bottom", "Left", "Right", "Front", "Back"};
-    // Representation of faces
-    private static final int TOP = 0;
-    private static final int BOTTOM = 1;
-    private static final int LEFT = 2;
-    private static final int RIGHT = 3;
-    private static final int FRONT = 4;
-    private static final int BACK = 5;
+    private final char[][][] cube = new char[6][3][3];        //Cube face array initiation 3-D where[face][grid face][grid face]
+    private static final char [] colors = {'Y', 'G', 'O', 'B', 'R', 'W'};
+    private static final String [] faceNames = {"Top", "Front", "Left", "Back", "Right", "Bottom"};
+    public static final int TOP = 0; //Representing cube faces
+    public static final int FRONT = 1;
+    public static final int LEFT = 2;
+    public static final int BACK = 3;
+    public static final int RIGHT = 4;
+    public static final int BOTTOM = 5;// Cube array
+
+    public char[][][] getCube() {
+        return cube;
+    }
 
 
     public RubiksCube (){  // Method to access the initialized cube
