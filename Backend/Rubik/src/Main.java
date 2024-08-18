@@ -3,7 +3,9 @@ public class Main {
         RubiksCube cube = new RubiksCube();
         CubeMoves moves = new CubeMoves(cube);
         moves.rotateFrontCounterClockwise();
+        moves.rotateTopClockwise();
+        moves.rotateTopCounterClockwise();
+        moves.rotateFrontClockwise();
         cube.DisplayCube();
-
     }
 }
