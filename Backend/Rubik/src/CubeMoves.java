@@ -161,4 +161,42 @@ public class CubeMoves {
             cube[RubiksCube.RIGHT][2-i][2] = tempRow[i];
         }
     }
+    public void rotateLeftClockwise(){
+        rotateFaceClockwise(RubiksCube.LEFT);
+        char[] temp = new char[3];
+        for(int i = 0; i < 3; i++){
+            temp[i] = cube[RubiksCube.TOP][i][0];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.TOP][i][0] = cube[RubiksCube.BACK][2-i][2];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.BACK][i][2] = cube[RubiksCube.BOTTOM][2-i][0];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.BOTTOM][i][0] = cube[RubiksCube.FRONT][i][0];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.FRONT][i][0] = temp[i];
+        }
+    }
+    public void rotateLeftCounterClockwise(){
+        rotateFaceCounterClockwise(RubiksCube.LEFT);
+        char[] temp = new char[3];
+        for(int i = 0; i < 3; i++){
+            temp[i] = cube[RubiksCube.TOP][i][0];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.TOP][i][0] = cube[RubiksCube.FRONT][i][0];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.FRONT][i][0] = cube[RubiksCube.BOTTOM][i][0];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.BOTTOM][i][0] = cube[RubiksCube.BACK][2-i][2];
+        }
+        for(int i = 0; i < 3; i++){
+            cube[RubiksCube.BACK][2-i][2] = temp[i];
+        }
+    }
 }
