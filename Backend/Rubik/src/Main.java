@@ -6,6 +6,12 @@ public class Main {
         moves.rotateTopClockwise();
         moves.rotateTopCounterClockwise();
         moves.rotateFrontClockwise();
+        moves.rotateBackClockwise();
+        moves.rotateBackCounterClockwise();
+        moves.rotateRightClockwise();
+        moves.rotateRightCounterClockwise();
+        moves.rotateLeftClockwise();
+        moves.rotateLeftCounterClockwise();
         cube.DisplayCube();
     }
 }
