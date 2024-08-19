@@ -41,7 +41,7 @@ public class CubeMoves {
         cube[face][2][2] = cube[face][2][0];
         cube[face][2][0] = temp;
 
-        temp = cube[RubiksCube.TOP][0][1];
+        temp = cube[face][0][1];
         cube[face][0][1] = cube[face][1][2];
         cube[face][1][2] = cube[face][2][1];
         cube[face][2][1] = cube[face][1][0];
@@ -55,9 +55,9 @@ public class CubeMoves {
         char[] tempRow = new char[3]; // Temp array
         //Copying Rows front to temp, right to front, back to right, left to back and temp to left
         System.arraycopy(cube[RubiksCube.FRONT][0], 0, tempRow, 0, 3);
-        System.arraycopy(cube[RubiksCube.RIGHT][0], 0, cube[RubiksCube.FRONT][0], 0, 3 );
+        System.arraycopy(cube[RubiksCube.RIGHT][0],0, cube[RubiksCube.FRONT][0],0,3);
         System.arraycopy(cube[RubiksCube.BACK][0], 0, cube[RubiksCube.RIGHT][0], 0, 3);
-        System.arraycopy(cube[RubiksCube.LEFT][0],0, cube[RubiksCube.BACK][0],0,3);
+        System.arraycopy(cube[RubiksCube.LEFT][0], 0, cube[RubiksCube.BACK][0], 0, 3 );
         System.arraycopy(tempRow, 0, cube[RubiksCube.LEFT][0], 0, 3);
     }
 
@@ -66,6 +66,7 @@ public class CubeMoves {
     public void rotateTopCounterClockwise(){
 
         rotateFaceCounterClockwise(RubiksCube.TOP);// rotates face counter-clockwise
+
 
         char[] tempRow = new char[3]; // Temp array
         //copying rows from front to temp, left to front, back to left, right to back and temp to right
@@ -152,7 +153,7 @@ public class CubeMoves {
             cube[RubiksCube.TOP][0][i] = cube[RubiksCube.LEFT][i][0];
         }
         for(int i = 0; i < 3; i++){
-            cube[RubiksCube.LEFT][1][0] = cube[RubiksCube.BOTTOM][2][2-i];
+            cube[RubiksCube.LEFT][i][0] = cube[RubiksCube.BOTTOM][2][2-i];
         }
         for(int i = 0; i < 3; i++){
             cube[RubiksCube.BOTTOM][2][i] = cube[RubiksCube.RIGHT][i][2];
@@ -203,10 +204,10 @@ public class CubeMoves {
         rotateFaceClockwise(RubiksCube.RIGHT);
         char[] temp = new char[3];
         for(int i = 0; i < 3; i++){
-            temp[i] = cube[RubiksCube.TOP][i][0];
+            temp[i] = cube[RubiksCube.TOP][i][2];
         }
         for(int i = 0; i < 3; i++){
-            cube[RubiksCube.TOP][i][2] = cube[RubiksCube.FRONT][2-i][2];
+            cube[RubiksCube.TOP][i][2] = cube[RubiksCube.FRONT][i][2];
         }
         for(int i = 0; i < 3; i++){
             cube[RubiksCube.FRONT][i][2] = cube[RubiksCube.BOTTOM][i][2];
@@ -215,26 +216,45 @@ public class CubeMoves {
             cube[RubiksCube.BOTTOM][i][2] = cube[RubiksCube.BACK][2-i][0];
         }
         for(int i = 0; i < 3; i++){
-            cube[RubiksCube.BACK][i][0] = temp[i];
+            cube[RubiksCube.BACK][2-i][0] = temp[i];
         }
     }
     public void rotateRightCounterClockwise(){
         rotateFaceCounterClockwise(RubiksCube.RIGHT);
         char[] temp = new char[3];
         for(int i = 0; i < 3; i++){
-            temp[i] = cube[RubiksCube.TOP][i][0];
+            temp[i] = cube[RubiksCube.TOP][i][2];
         }
         for(int i = 0; i < 3; i++){
-            cube[RubiksCube.TOP][i][2] = cube[RubiksCube.BACK][i][0];
+            cube[RubiksCube.TOP][i][2] = cube[RubiksCube.BACK][2-i][0];
         }
         for(int i = 0; i < 3; i++){
-            cube[RubiksCube.BACK][i][0] = cube[RubiksCube.BOTTOM][2-i][2];
+            cube[RubiksCube.BACK][2-i][0] = cube[RubiksCube.BOTTOM][i][2];
         }
         for(int i = 0; i < 3; i++){
             cube[RubiksCube.BOTTOM][i][2] = cube[RubiksCube.FRONT][i][2];
         }
         for(int i = 0; i < 3; i++){
-            cube[RubiksCube.FRONT][2-i][2] = temp[i];
+            cube[RubiksCube.FRONT][i][2] = temp[i];
         }
+    }
+    public void rotateBottomClockwise(){
+        rotateFaceClockwise(RubiksCube.BOTTOM);
+        char[] temp = new char[3];
+        System.arraycopy(cube[RubiksCube.FRONT][2], 0, temp, 0, 3);
+        System.arraycopy(cube[RubiksCube.LEFT][2], 0, cube[RubiksCube.FRONT][2], 0, 3);
+        System.arraycopy(cube[RubiksCube.BACK][2], 0, cube[RubiksCube.LEFT][2], 0, 3);
+        System.arraycopy(cube[RubiksCube.RIGHT][2], 0, cube[RubiksCube.BACK][2], 0, 3);
+        System.arraycopy(temp, 0, cube[RubiksCube.RIGHT][2], 0, 3);
+    }
+    public void rotateBottomCounterClockwise(){
+        rotateFaceCounterClockwise(RubiksCube.BOTTOM);
+        char[] temp = new char[3];
+        System.arraycopy(cube[RubiksCube.FRONT][2], 0, temp, 0, 3);
+        System.arraycopy(cube[RubiksCube.RIGHT][2], 0, cube[RubiksCube.FRONT][2], 0, 3);
+        System.arraycopy(cube[RubiksCube.BACK][2], 0, cube[RubiksCube.RIGHT][2], 0, 3);
+        System.arraycopy(cube[RubiksCube.LEFT][2], 0, cube[RubiksCube.BACK][2], 0, 3);
+        System.arraycopy(temp, 0, cube[RubiksCube.LEFT][2], 0, 3);
+
     }
 }

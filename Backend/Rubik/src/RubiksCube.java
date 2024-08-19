@@ -2,7 +2,7 @@ public class RubiksCube {
     //making a 3D array for cube [FACE][3(GRID)][3(GRID)]
     private final char[][][] cube = new char[6][3][3];
     //array for cube face colors
-    private static final char [] colors = {'Y', 'G', 'O', 'B', 'R', 'W'};
+    private static final char [] colors = {'Y', 'G', 'R', 'B', 'O', 'W'};
     //array for face names
     private static final String [] faceNames = {"Top", "Front", "Left", "Back", "Right", "Bottom"};
     //face constants
@@ -42,7 +42,7 @@ public class RubiksCube {
             System.out.println("Face: " + faceNames[face]);
             for(int i = 0; i < 3; i++){
                 for(int j = 0; j < 3; j++){
-                    System.out.print(cube[face][i][j] + " ");
+                    System.out.print(cube[face][i][j] + " " );
                 }
                 System.out.println();
             }
