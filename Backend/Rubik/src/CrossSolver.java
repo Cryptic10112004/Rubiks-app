@@ -142,6 +142,7 @@ public class CrossSolver {
                                     cubeMoves.rotateFrontClockwise();
                                     cubeMoves.rotateTopCounterClockwise();
                                     cubeMoves.rotateRightClockwise();
+                                    cubeMoves.rotateTopClockwise();
                                 }
                             }
                             else if(i == 1 && j == 0){
@@ -226,6 +227,7 @@ public class CrossSolver {
                                 else if(isVacant[3] == 'N'){
                                     cubeMoves.rotateTopClockwise();
                                     cubeMoves.rotateLeftCounterClockwise();
+                                    cubeMoves.rotateTopCounterClockwise();
                                 }
                             }
                             else if(j == 2){
@@ -254,6 +256,63 @@ public class CrossSolver {
                                         cubeMoves.rotateRightClockwise();
                                         cubeMoves.rotateTopCounterClockwise();
                                     }
+                                }
+                                else if(isVacant[1] == 'N'){
+                                    if (cube[RubiksCube.BOTTOM][1][2] != 'W') {
+                                        cubeMoves.rotateTopClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                        cubeMoves.rotateRightClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                    }
+                                    else if (cube[RubiksCube.BOTTOM][0][1] != 'W'){
+                                        cubeMoves.rotateBottomClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                        cubeMoves.rotateRightClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                    }
+                                    else if (cube[RubiksCube.BOTTOM][1][0] != 'W'){
+                                        cubeMoves.rotateBottomClockwise();
+                                        cubeMoves.rotateBottomClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                        cubeMoves.rotateRightClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                    }
+                                    else if (cube[RubiksCube.BOTTOM][2][1] != 'W'){
+                                        cubeMoves.rotateBottomCounterClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                        cubeMoves.rotateRightClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                        cubeMoves.rotateTopClockwise();
+                                    }
+                                }
+                                else if (isVacant[2] == 'N'){
+                                    if (cube[RubiksCube.BOTTOM][1][2] != 'W') {
+                                        cubeMoves.rotateRightClockwise();
+                                    }
+                                    else if (cube[RubiksCube.BOTTOM][0][1] != 'W'){
+                                        cubeMoves.rotateBottomClockwise();
+                                        cubeMoves.rotateRightClockwise();
+                                    }
+                                    else if (cube[RubiksCube.BOTTOM][1][0] != 'W'){
+                                        cubeMoves.rotateBottomClockwise();
+                                        cubeMoves.rotateBottomClockwise();
+                                        cubeMoves.rotateRightClockwise();
+                                    }
+                                    else if (cube[RubiksCube.BOTTOM][2][1] != 'W'){
+                                        cubeMoves.rotateBottomCounterClockwise();
+                                        cubeMoves.rotateRightClockwise();
+                                    }
+                                }
+                                else if (isVacant[3] == 'N'){
+                                    cubeMoves.rotateTopCounterClockwise();
+                                    cubeMoves.rotateRightClockwise();
+                                    cubeMoves.rotateTopClockwise();
                                 }
                             }
                             else {
